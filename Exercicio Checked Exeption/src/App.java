@@ -1,16 +1,26 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
-public class App {
-    public static void main(String[] args) throws Exception {
-        String nomeDoArquivo = "romances-blake-crouch.txt";
-        imprimirArquivoNoConsole(nomeDoArquivo);
+import javax.swing.JOptionPane;
 
-        System.out.println("Apesar da exception ou não o arquivo continua");
+public class App {
+    public static void main(String[] args) {
+        String nomeDoArquivo = "romances-blake-crouch.txt";
+        try {
+            imprimirArquivoNoConsole(nomeDoArquivo);
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Revise o nome do arquivo que você deseja imprimir");
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado! entre em contato com o suporte");
+        }
+
     }
 
     public static void imprimirArquivoNoConsole(String nomeDoArquivo) throws IOException {
