@@ -17,6 +17,10 @@ public class App {
             }catch(DivisaoNaoExataExeption e){
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null, e.getMessage());
+            }catch(ArithmeticException e){
+                JOptionPane.showMessageDialog(null, "Não é possiver dividir um número por 0");
+            }catch(ArrayIndexOutOfBoundsException e){
+                JOptionPane.showMessageDialog(null, "Índice não encontrado");
             }
 
             System.out.println("O programa continua...");
